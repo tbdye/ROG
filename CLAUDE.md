@@ -8,14 +8,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 1. Build a functional Railroad Operations Game application
 2. Document AI-assisted development workflow for portfolio/content creation
 
-**Current Phase:** Phase 1 - Ideation (implementation has not begun)
+**Current Phase:** Phase 2 - PRD Development (implementation has not begun)
 
 ## Project Workflow Phases
 
 The project follows a structured 6-phase approach:
 
-1. **Phase 1: Ideation** (Current) - Requirements exploration, scope definition
-2. **Phase 2: PRD Development** - Product Requirements Document creation
+1. **Phase 1: Ideation** ✅ Complete - Requirements exploration, scope definition
+2. **Phase 2: PRD Development** (Current) - Product Requirements Document creation
 3. **Phase 3: Implementation Planning** - Tech stack, architecture, deployment strategy
 4. **Phase 4: Detailed Task Breakdown** - Prioritized task list with dependencies
 5. **Phase 5: Implementation** - Active development (Claude Code CLI primary tool)
@@ -31,8 +31,10 @@ ROG/
 │
 └── docs/
     ├── ROG-PROJECT-GUIDELINES.md       # Project framework
+    ├── phase2-prd-progress.md          # Phase 2 progress tracker
     ├── portfolio/                      # Portfolio content (Phase 6)
-    │   └── decision-log.md             # Collaboration narrative
+    │   ├── decision-log.md             # Collaboration narrative
+    │   └── artifacts/                  # Research reports and planning materials
     └── sessions/                       # Session summaries
         └── YYYY-MM-DD-descriptor.md    # Individual session notes
 ```
@@ -123,6 +125,43 @@ This project uses multi-layer content preservation:
 - Clear, descriptive naming conventions
 - Portfolio content lives in `docs/portfolio/`
 - Session summaries live in `docs/sessions/`
+- Research reports and planning materials in `docs/portfolio/artifacts/`
+
+**File Naming Review Protocol:**
+Before committing new documents, ALWAYS verify naming conventions:
+- Session summaries: `YYYY-MM-DD-descriptor.md` (date-first, descriptive suffix)
+- Research reports: Follow established patterns in their directory
+- Check CLAUDE.md documentation structure for correct placement
+- Update documentation structure if creating new directories
+
+**Important: Renaming New Files from Claude.ai**
+- Files transferred from Claude.ai are UNTRACKED (not yet in git)
+- Use regular `mv` command to rename untracked files
+- Do NOT use `git mv` on untracked files (will fail with "not under version control")
+- After renaming and review, then `git add` the correctly-named files
+- Only use `git mv` for files already committed to the repository
+
+**Cross-Environment File Sync Query:**
+When working across Claude.ai and Code CLI, you can ask: **"What files need syncing?"** or **"Which files should I upload to Claude.ai for current context?"**
+
+Claude Code CLI will check current phase and provide a **layered response**:
+
+**CORE (Always in Claude.ai Project, update if modified):**
+- Essential files needed across all phases
+- Project guidelines, git workflow, decision log
+- Update when modified, keep permanently loaded
+
+**PHASE-SPECIFIC (Current work, add/update as needed):**
+- Active phase progress trackers
+- Latest session summaries
+- Draft documents being developed
+
+**REFERENCE (Optional, load on-demand):**
+- Large research reports (load if discussing specific topics)
+- Older session summaries (unless reviewing patterns)
+- Previous phase artifacts (if referencing past decisions)
+
+This prevents uploading unnecessary large files while ensuring critical context is never missing.
 
 ## Portfolio Context
 
@@ -135,9 +174,10 @@ This project captures human-AI collaboration patterns for a future portfolio pie
 ## Current Status
 
 - **Phase 0: Planning Setup** ✅ Complete
-- **Phase 1: Ideation** - In progress, no code written yet
-- No technical stack selected
-- No implementation files exist
-- Repository contains only planning documentation and Git structure
+- **Phase 1: Ideation** ✅ Complete
+- **Phase 2: PRD Development** - In progress
+- No technical stack selected yet (Phase 3)
+- No implementation files exist (Phase 5)
+- Repository contains planning documentation and domain research
 
 When implementation begins (Phase 5), this file will be updated with concrete build commands, architecture details, and development workflows.
