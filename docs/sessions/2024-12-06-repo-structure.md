@@ -128,6 +128,72 @@ ROG/
 - This session validates the operational parameters before ideation begins
 - Smart approach: establish mechanics before content creation
 
+## Presentation Artifacts
+
+### Interaction Style: Prescriptive vs. Collaborative
+
+**Why Prescriptive Approach:**
+This session differed from the previous Claude.ai session in interaction style. Human had a clear agenda and specific requirements:
+
+> "I've already created a new repository for us to work in... We will never commit directly to main, rather we will create topic branches under user/tbdye/<NameOfBranch>... Each commit should have good commit messages... Pull requests should always contain an executive summary..."
+
+**Contrast with Previous Session:**
+- **Claude.ai (Planning):** Collaborative exploration, iterative refinement, joint problem-solving
+- **Claude Code (Repo Setup):** Prescriptive instructions, clear constraints, implementation-focused
+
+**Why This Matters:**
+Human recognized that repo structure and git workflow needed clear rules, not negotiation. When requirements are well-defined, prescriptive guidance is more efficient than exploration.
+
+### Key Instructions Given
+
+**Git Workflow Requirements:**
+```
+- Branch naming: user/tbdye/<NameOfBranch>
+- Never commit directly to main
+- Always create PRs, get manual approval
+- Commit messages follow best practices
+- PRs include: executive summary, notable changes, why, how (if non-trivial)
+- Always ask before committing/creating PR
+```
+
+**Documentation Organization Challenge:**
+```
+"A particular challenge I'd like to think about is how to separate
+documentation that is meant to be human readable for the project,
+documentation that is for Claude for ROG, and documentation that is
+being stored for my portfolio project."
+```
+
+**Session Capture Requirement:**
+```
+"Interactions here will need to get saved to our discussion log, and
+over time, we may end up with a significant number of session summaries.
+Depending on interaction, we may have multiple in the same day..."
+```
+
+### Implementation Results
+
+**Three-tier structure proposed and approved:**
+- Root: Operational files (CLAUDE.md, CONTRIBUTING.md, README.md)
+- docs/portfolio/: Portfolio synthesis materials
+- docs/sessions/: Session summaries with date-descriptor naming
+
+**Session naming convention:** `YYYY-MM-DD-<descriptor>.md`
+
+### Visual Representation
+
+For presentation, this session demonstrates:
+1. Clear problem definition → Structured solution
+2. Prescriptive requirements → Efficient implementation
+3. Different interaction modes for different phases
+
+**Quote for slide:**
+> "Since merging the pull request represents finalizing knowledge, we need
+> to look at that as the end of a particular session's work, so all updates
+> to ANY documentation must be captured prior to that merge."
+
+This encapsulates the operational insight: PR merge = knowledge checkpoint.
+
 ## Challenges and Solutions
 
 ### Challenge: Files Not Tracked in Git

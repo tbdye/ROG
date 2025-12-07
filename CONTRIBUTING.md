@@ -206,6 +206,31 @@ Each work session should produce a summary in `docs/sessions/`:
 - Notable collaboration moments (reference decision log)
 - Next steps
 - Any blockers or open questions
+- **Presentation Artifacts** (see below)
+
+### Presentation Artifacts in Session Summaries
+
+Session summaries should include a "Presentation Artifacts" section to capture material suitable for portfolio presentation (blog post, video, slides).
+
+**What to Capture:**
+- Direct quotes/excerpts of human instructions (when they show essential guidance patterns)
+- Conversation excerpts that would make good visual artifacts
+- Interaction style notes (prescriptive vs. collaborative approach and why)
+- Key decisions with context about how they were reached
+- Contrast with other sessions when relevant
+
+**What NOT to Capture as Artifacts:**
+- Long transcripts (extract key quotes instead)
+- File structure diagrams or diffs (metadata only)
+- Information better preserved as raw metadata
+
+**Visual Artifacts (Images/Diagrams):**
+- Store in `docs/portfolio/artifacts/` directory
+- Reference from session summary using relative links
+- Include descriptive filenames: `2024-12-06-repo-structure-diagram.png`
+- Particularly important for images uploaded during Claude.ai ideation sessions
+
+**Goal:** Preserve presentation-ready material that demonstrates effective human-AI collaboration patterns, not just project history.
 
 ### Multiple Sessions Per Day
 
