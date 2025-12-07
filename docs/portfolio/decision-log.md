@@ -42,6 +42,8 @@ Human established clear framing about what the portfolio piece should capture:
 - Recognition that vast content will need narrative synthesis later
 
 **Human's Key Guidance:**
+> "There are two parts of this project: The first is to create something that may end up being a kind of app, the second is to capture the interactions in AI assisted workflows to detail the process of how this was built. This second artifact can be considered to be for a portfolio piece, so understanding my interaction versus your interaction is critical."
+
 > "I want to capture how I guide you and how you respond. Seeing raw content isn't necessarily useful, but the process that humans use to effectively get good work from LLMs like yourself is."
 
 **AI Response:**
@@ -69,7 +71,15 @@ Created initial project guidelines, then refined based on human feedback.
 Human provided 6 specific clarifications rather than just approving initial draft. This showed effective collaboration pattern: review → provide specific feedback → iterate.
 
 **Human's Approach:**
-- Numbered list of responses to open questions
+Numbered list of responses to open questions, demonstrating structured feedback:
+> 1. I will go into more detail about ROG. We'll come back to this.
+> 2. I don't have any tech stack preference. I don't want to lean toward any particular framework right now because we don't have a clear idea of what we want to do or how we'll do it.
+> 3. I don't have an answer for this yet. We'll discuss it more when we start detailing out ROG.
+> 4. Done for the app is when it's usable for the specs we define...
+> 5. I won't be doing screen recording...
+> 6. I think scope will be negotiated. We'll have to come back to this after we know more about ROG.
+
+Key characteristics:
 - Mixed definitive answers with "we'll come back to this"
 - Identified what can be decided now vs. later
 - Particularly insightful on #5 (content capture philosophy)
@@ -131,7 +141,8 @@ Human consistently thinks one step ahead - not just "what do we build?" but "how
 After extensive discussion about file syncing, human went to check local project folder.
 
 **Moment:**  
-Human reported: "I just went and browsed to the project folder and didn't see files."
+Human tested the workflow and reported:
+> "I just went and browsed to the project folder and didn't see files. Are they saved somewhere else?"
 
 **The Misunderstanding:**
 AI assumed human understood that files created in Claude.ai need to be manually downloaded via provided links. AI said "download files" but didn't explicitly explain that clicking blue links → viewing in UI → clicking download button was required. Human reasonably expected files might appear automatically or wasn't clear on the download mechanism.
