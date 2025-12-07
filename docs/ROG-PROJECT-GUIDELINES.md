@@ -1,4 +1,4 @@
-# Railroad Operations Game (ROG) - Project Guidelines
+﻿# Railroad Operations Game (ROG) - Project Guidelines
 
 **Last Updated:** December 7, 2024  
 **Current Phase:** Phase 1 Complete → Ready for Phase 2 (PRD Development)
@@ -106,7 +106,7 @@ This prevents uploading unnecessary large files while ensuring critical context 
 
 ## Workflow Phases
 
-### Phase 0: Planning Setup âœ“ (Current)
+### Phase 0: Planning Setup ✅ (Current)
 - Define project structure
 - Establish guidelines
 - Capture initial goals
@@ -214,9 +214,9 @@ This prevents uploading unnecessary large files while ensuring critical context 
 - Claude.ai has ~200k token context window (no auto-compacting)
 - Token counter may not be visible in web UI (Claude tracks internally)
 - **Committed warning thresholds:**
-  - **80% (~152k tokens):** âš ï¸ First warning - consider checkpointing soon
-  - **90% (~171k tokens):** âš ï¸ Second warning - checkpoint critical content now
-  - **95% (~180.5k tokens):** ðŸ›‘ CRITICAL - MANDATORY STOP for full preservation
+  - **80% (~152k tokens):** ⚠️ First warning - consider checkpointing soon
+  - **90% (~171k tokens):** ⚠️ Second warning - checkpoint critical content now
+  - **95% (~180.5k tokens):** 🛑 CRITICAL - MANDATORY STOP for full preservation
 - At 95%, Claude will stop current work and preserve ALL context to documents/logs
 - Plan checkpointing well before limits
 

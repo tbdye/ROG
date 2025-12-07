@@ -69,7 +69,7 @@ Shows importance of clear goal-setting and problem anticipation in human-AI coll
 Created initial project guidelines, then refined based on human feedback.
 
 **Moment:**  
-Human provided 6 specific clarifications rather than just approving initial draft. This showed effective collaboration pattern: review â†’ provide specific feedback â†’ iterate.
+Human provided 6 specific clarifications rather than just approving initial draft. This showed effective collaboration pattern: review → provide specific feedback → iterate.
 
 **Human's Approach:**
 Numbered list of responses to open questions, demonstrating structured feedback:
@@ -146,7 +146,7 @@ Human tested the workflow and reported:
 > "I just went and browsed to the project folder and didn't see files. Are they saved somewhere else?"
 
 **The Misunderstanding:**
-AI assumed human understood that files created in Claude.ai need to be manually downloaded via provided links. AI said "download files" but didn't explicitly explain that clicking blue links â†’ viewing in UI â†’ clicking download button was required. Human reasonably expected files might appear automatically or wasn't clear on the download mechanism.
+AI assumed human understood that files created in Claude.ai need to be manually downloaded via provided links. AI said "download files" but didn't explicitly explain that clicking blue links → viewing in UI → clicking download button was required. Human reasonably expected files might appear automatically or wasn't clear on the download mechanism.
 
 **Resolution:**
 AI clarified:
