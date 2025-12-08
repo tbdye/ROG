@@ -1,7 +1,7 @@
-﻿# Railroad Operations Game (ROG) - Project Guidelines
+# Railroad Operations Game (ROG) - Project Guidelines
 
 **Last Updated:** December 7, 2024  
-**Current Phase:** Phase 1 Complete → Ready for Phase 2 (PRD Development)
+**Current Phase:** Phase 2 - PRD Development (Active - Platform Architecture Complete)
 
 ---
 
@@ -106,7 +106,7 @@ This prevents uploading unnecessary large files while ensuring critical context 
 
 ## Workflow Phases
 
-### Phase 0: Planning Setup ✅ (Current)
+### Phase 0: Planning Setup [x] (Current)
 - Define project structure
 - Establish guidelines
 - Capture initial goals
@@ -214,9 +214,9 @@ This prevents uploading unnecessary large files while ensuring critical context 
 - Claude.ai has ~200k token context window (no auto-compacting)
 - Token counter may not be visible in web UI (Claude tracks internally)
 - **Committed warning thresholds:**
-  - **80% (~152k tokens):** ⚠️ First warning - consider checkpointing soon
-  - **90% (~171k tokens):** ⚠️ Second warning - checkpoint critical content now
-  - **95% (~180.5k tokens):** 🛑 CRITICAL - MANDATORY STOP for full preservation
+  - **80% (~152k tokens):** [!] First warning - consider checkpointing soon
+  - **90% (~171k tokens):** [!!] Second warning - checkpoint critical content now
+  - **95% (~180.5k tokens):** [CRITICAL] MANDATORY STOP for full preservation
 - At 95%, Claude will stop current work and preserve ALL context to documents/logs
 - Plan checkpointing well before limits
 
@@ -265,15 +265,22 @@ This prevents uploading unnecessary large files while ensuring critical context 
 ## Open Questions & Decisions Needed
 
 ### Technical Decisions (Address in Phases 1-3)
+- [x] **Deployment target** - Cloud-based PWA (Progressive Web App), no app store required
+- [x] **Hosting strategy** - Cloud backend (Azure or cost-effective alternative)
+- [x] **Offline capability** - 30+ second drop tolerance, optimistic sync with car ownership model
+- [x] **Multi-device sync** - Real-time collaboration, server-authoritative
 - [ ] Tech stack (backend language/framework) - **Open-minded, will be driven by requirements**
 - [ ] Database selection
-- [ ] Frontend framework
-- [ ] Deployment target (local/cloud/self-hosted) - **To be determined with ROG requirements**
+- [ ] Frontend framework (React/Vue/Svelte for PWA)
 - [ ] Testing framework/strategy
 
 ### Scope Decisions (Address in Phases 1-2)
-- [ ] Target audience definition
-- [ ] MVP feature set - **Will be negotiated during planning**
+- [x] **Target audience** - Community-wide: any club, operator, layout owner
+- [x] **Business model** - Freemium: free single operator, paid multi-operator sessions
+- [x] **License/openness** - Open development (public GitHub), license deferred to implementation
+- [x] **Integration scope** - MVP includes stat tracking; JMRI import, export, sharing deferred
+- [x] **Physical artifacts** - Pure digital for MVP, paper backup consideration for future
+- [ ] MVP feature set - **Being defined in Phase 2 PRD**
 - [ ] Future enhancement categories
 - [ ] Performance/scale requirements
 
@@ -364,7 +371,7 @@ These questions must be addressed during PRD development. Organized by priority 
 - What's the actual data model for an industry spot?
 - Can multiple cars share one spot?
 - How is spot capacity determined?
-- How specific are commodity matchings? (coal → any hopper, or coal → open-top hopper only?)
+- How specific are commodity matchings? (coal -> any hopper, or coal -> open-top hopper only?)
 - Do industries have operating hours or service schedules that affect availability?
 
 **8. Train Consist Building Rules**
@@ -529,4 +536,6 @@ These questions must be addressed during PRD development. Organized by priority 
 | 2024-12-07 | Phase 1 completed: domain research, user validation, problem crystallization | Phase 1 |
 | 2024-12-07 | Added comprehensive Phase 2 question framework (26 categories) | Phase 1 |
 | 2024-12-07 | Updated current phase status to Phase 2 (PRD Development) | Phase 1 |
+| 2024-12-07 | Platform architecture decisions (Q22-26): PWA, cloud backend, offline sync, freemium model | Phase 2 |
+| 2024-12-07 | Established car ownership conflict prevention model and session master authority | Phase 2 |
 

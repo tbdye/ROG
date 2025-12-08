@@ -8,12 +8,12 @@
 
 ## Progress Summary
 
-**Overall Completion:** 0/26 questions addressed
+**Overall Completion:** 5/26 questions addressed
 
 - **Critical (Must Address in PRD):** 0/5 complete
 - **Important (Affects Design):** 0/5 complete
 - **Refinement (Can Defer to Detailed Design):** 0/11 complete
-- **Platform and Deployment Context:** 0/5 complete
+- **Platform and Deployment Context:** 5/5 complete [x]
 
 ---
 
@@ -22,7 +22,7 @@
 ### CRITICAL (Must Address in PRD)
 
 #### 1. Layout Topology Representation
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -38,7 +38,7 @@
 ---
 
 #### 2. Car State Lifecycle
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -52,7 +52,7 @@
 ---
 
 #### 3. Geographic Routing Algorithm (THE CORE PROBLEM)
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -68,7 +68,7 @@
 ---
 
 #### 4. Time Modeling
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -84,7 +84,7 @@
 ---
 
 #### 5. Staging Mechanics
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -102,7 +102,7 @@
 ### IMPORTANT (Affects Design)
 
 #### 6. Car Identity and Granularity
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -117,7 +117,7 @@
 ---
 
 #### 7. Industry and Spot Definitions
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -125,7 +125,7 @@
 - What's the actual data model for an industry spot?
 - Can multiple cars share one spot?
 - How is spot capacity determined?
-- How specific are commodity matchings? (coal → any hopper, or coal → open-top hopper only?)
+- How specific are commodity matchings? (coal -> any hopper, or coal -> open-top hopper only?)
 - Do industries have operating hours or service schedules that affect availability?
 
 **Notes:**
@@ -133,7 +133,7 @@
 ---
 
 #### 8. Train Consist Building Rules
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -149,7 +149,7 @@
 ---
 
 #### 9. Multi-Session Continuity
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -164,7 +164,7 @@
 ---
 
 #### 10. Role-Specific Workflows
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -180,7 +180,7 @@
 ### REFINEMENT (Can Defer to Detailed Design)
 
 #### 11. "Checking In Cars" Workflow
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -195,7 +195,7 @@
 ---
 
 #### 12. Session State Tracking
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -210,7 +210,7 @@
 ---
 
 #### 13. Train Assignment and Handoff
-**Status:** ✅ Partially Answered
+**Status:** [x] Partially Answered
 **Session:** 2024-12-07 (Phase 1)
 **PRD Section:** TBD
 
@@ -225,7 +225,7 @@
 ---
 
 #### 14. Missing or Misdelivered Cars
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -239,7 +239,7 @@
 ---
 
 #### 15. Cars Going "Out of Game"
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -253,7 +253,7 @@
 ---
 
 #### 16. Layout Changes Mid-Session
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -267,7 +267,7 @@
 ---
 
 #### 17. Scale Operational Differences
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -281,7 +281,7 @@
 ---
 
 #### 18. Capacity Constraints
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -295,7 +295,7 @@
 ---
 
 #### 19. Session End State
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -310,7 +310,7 @@
 ---
 
 #### 20. Success Metrics
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -324,7 +324,7 @@
 ---
 
 #### 21. Interchange Between Railroads
-**Status:** ⬜ Not Started
+**Status:** [ ] Not Started
 **Session:** TBD
 **PRD Section:** TBD
 
@@ -340,8 +340,8 @@
 ### PLATFORM AND DEPLOYMENT CONTEXT
 
 #### 22. Technical Platform
-**Status:** ⬜ Not Started
-**Session:** TBD
+**Status:** [x] Complete
+**Session:** 2024-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -350,13 +350,22 @@
 - Multiple device sync - can conductor use phone while yardmaster uses tablet?
 - Does ROG need to work when internet is completely unavailable?
 
-**Notes:** Offline capability may be critical constraint
+**Decisions Made:**
+- **Platform:** Progressive Web App (PWA) - installs from browser, no app store required
+- **Backend:** Cloud-hosted (Azure or cost-effective alternative)
+- **Interface:** Mobile-first for operators (phones), desktop for session setup (keyboard/mouse)
+- **Offline capability:** Tolerates 30+ second connection drops, queues changes for sync
+- **Connectivity indicator:** Proactive, unobtrusive (small icon showing online/offline/syncing)
+- **UX requirement:** Clear onboarding instructions for PWA install (older demographic consideration)
+- **Multi-device:** Real-time collaboration, server-authoritative with optimistic sync
+
+**Notes:** PWA verified on iPhone (Squoosh test app). Install process requires explicit instructions but experience is app-like once installed.
 
 ---
 
 #### 23. Integration and Compatibility
-**Status:** ⬜ Not Started
-**Session:** TBD
+**Status:** [x] Complete
+**Session:** 2024-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -364,13 +373,22 @@
 - Does ROG need to export data (for printing, archiving, analysis)?
 - Is there value in being compatible with existing standards/formats?
 
-**Notes:**
+**Decisions Made:**
+- **MVP Scope:** Game and player stat tracking (session metrics, operator metrics, system health)
+- **Future features (not MVP):**
+  - JMRI import (architect to allow, but defer implementation)
+  - Post-session export (JSON/CSV for records/analysis)
+  - Layout/roster sharing (community feature)
+- **Paper export:** REMOVED from MVP scope - disaster recovery scenario acceptable without paper backup
+- **Rationale:** Paper backup changes gameplay dynamics (static vs evolving world), adds complexity without clear MVP value
+
+**Notes:** Stat tracking enables future gamification (leaderboards, performance metrics). Post-session reporting provides session quality insights.
 
 ---
 
 #### 24. Project Scope and Audience
-**Status:** ⬜ Not Started
-**Session:** TBD
+**Status:** [x] Complete
+**Session:** 2024-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -378,13 +396,20 @@
 - Open source vs proprietary?
 - This affects decisions about generalization vs. solving your specific needs
 
-**Notes:**
+**Decisions Made:**
+- **Audience:** Community-wide - any club, operator, layout owner can use
+- **Development:** Open development (public GitHub repository)
+- **Commercial model:** Freemium - free for single operator, paid for multi-operator sessions
+- **License:** Decision deferred until implementation phase
+- **Deployment:** Commercial deployment required to recoup hosting/development costs
+
+**Notes:** Avoiding self-hosted model to prevent "every club becomes sysadmin" barrier to adoption. Cloud-based reduces friction.
 
 ---
 
 #### 25. Physical Artifacts and Backup
-**Status:** ⬜ Not Started
-**Session:** TBD
+**Status:** [x] Complete
+**Session:** 2024-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -392,13 +417,20 @@
 - Do operators need printed backup in case devices fail?
 - QR codes on modules to identify them to the system?
 
-**Notes:**
+**Decisions Made:**
+- **MVP:** Pure digital (no paper dependency)
+- **Offline capability:** PWA service workers provide offline tolerance
+- **Disaster recovery:** If all devices fail catastrophically, session disruption is acceptable for MVP
+- **Future consideration:** Paper backup for disaster recovery (noted that this changes gameplay from evolving world to static list)
+- **Session state:** If devices fail but players were already in offline cached mode, they can continue
+
+**Notes:** Offline cached state provides inherent backup if connectivity lost during active session. Complete device failure is edge case acceptable for V1.
 
 ---
 
 #### 26. User Authentication and Authority
-**Status:** ⬜ Not Started
-**Session:** TBD
+**Status:** [x] Complete
+**Session:** 2024-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -407,7 +439,22 @@
 - Who can change car positions/states?
 - Or is it "trust everyone" since it's a collaborative game?
 
-**Notes:**
+**Decisions Made:**
+- **Authentication:** User accounts (email-based)
+- **Ownership model:** Club/subscription ownership
+- **Session master role:** Assignable role (not just subscription owner), has "god mode" privileges
+- **Role switching:** Session master can switch to "Operator" profile during session, retain admin access
+- **Operator permissions:** Can only modify cars "owned" by their assigned train
+- **Admin capabilities:**
+  - Override car positions (fix reality divergence)
+  - Reassign cars between trains
+  - Mark cars as "out of game"
+  - End/freeze session
+  - View all operators, connectivity status, system health
+- **Conflict resolution:** Admin changes are authoritative (fixing reality), player syncs that conflict are rejected with notification
+- **Tracking:** System logs admin overrides, surfaces conflicts to session master console
+
+**Notes:** Car ownership model prevents most conflicts inherently. Admin authority handles edge cases (missing cars, owner took equipment home, etc.).
 
 ---
 
@@ -415,15 +462,25 @@
 
 _Track which sessions worked on which questions_
 
-### Session: TBD
+### Session: 2024-12-07 - Platform Architecture
 **Questions Addressed:**
-- TBD
+- Q22: Technical Platform ([x] Complete)
+- Q23: Integration and Compatibility ([x] Complete)
+- Q24: Project Scope and Audience ([x] Complete)
+- Q25: Physical Artifacts and Backup ([x] Complete)
+- Q26: User Authentication and Authority ([x] Complete)
 
 **Decisions Made:**
-- TBD
+- PWA architecture with cloud backend (no app store required)
+- Offline-tolerant with optimistic sync, 30+ second drop tolerance
+- Proactive connectivity indicator (unobtrusive status icon)
+- Car ownership model prevents conflicts, admin authority resolves edge cases
+- Stat tracking in MVP scope, paper export removed from MVP
+- Freemium business model: free single operator, paid multi-operator
+- Session master = assignable role with god mode, can switch to operator
 
 **Next Steps:**
-- TBD
+- Q1 & Q3: Layout Topology Representation + Geographic Routing Algorithm (THE core problem)
 
 ---
 
