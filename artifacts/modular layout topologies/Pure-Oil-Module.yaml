@@ -1,0 +1,92 @@
+Module:
+  name: "Pure Oil"
+  owner: "Al"
+  
+  track_interfaces:
+    left_edge:
+      - {line: "left_Red_interface", connects_through: true}
+      - {line: "left_Yellow_interface", connects_through: true}
+      - {line: "left_Blue_interface", connects_through: true}
+      - {line: "left_Red_Siding", connects_through: false} # this is for the siding track that's not connected to Kennedy
+
+    right_edge:
+      - {line: "right_Red_interface", connects_through: true}
+
+  internal_topology:
+    track_segments:
+      - {id: "onetrack_through", from: "right_Red_interface", to: "TO_Red_ladder", type: "mainline"}
+      - {id: "red_industry_siding", from: "TO_Red_ladder", type: "industry_siding", capacity_cars: 3} # this could have been a through track if it were connected at the other end
+      - {id: "red_to_ladder", from: "TO_Red_ladder", to: "TO_OneTrack_to_blue", type: "connector"}
+      
+      # NTrak tracks, also serving as sidings going into Kennedy
+      - {id: "ntrak_red_through", from: "left_Red_interface", to: "TO_OneTrack_to_yellow", type: "mainline"}
+      - {id: "ntrak_yellow_through", from: "left_Yellow_interface", to: "TO_OneTrack_to_yellow", type: "siding"}
+      - {id: "ntrak_blue_through", from: "left_Blue_interface", to: "TO_OneTrack_to_blue", type: "siding"}
+      
+    turnouts:
+      - id: "TO_Red_ladder"
+        hand: "left"
+        facing_direction: "left"  # westbound (R→L) has choice
+        facing_point: "onetrack_through"
+        diverging_point: "red_to_ladder"
+        trailing_point: "red_industry_siding"  # straight goes to siding
+      - id: "TO_OneTrack_to_blue"
+        hand: "right"
+        facing_direction: "left" # this is hard because it's diagonal on the ladder
+        facing_point: "red_to_ladder"
+        diverging_point: "ntrak_blue_through"
+        trailing point: "TO_OneTrack_to_yellow"
+      - id: "TO_OneTrack_to_yellow"
+        hand: "right"
+        facing_direction: "left"
+        facing_point: "TO_OneTrack_to_blue"
+        diverging_point: "ntrak_yellow_through"
+        trailing point: "ntrak_red_through"
+
+  industries:
+    - {name: "Pure_Oil_Industry", location: "red_industry_siding", 
+       consumes: ["crude_oil, grease, chemicals"], produces: ["refined_products, plastics, gas"], spots: 3}
+  
+  sequencing:
+    red_through:
+      westbound:  # right to left (from OneTrack side)
+        - right_Red_interface
+        - onetrack_through
+        - TO_Red_ladder
+        - red_to_ladder
+        - TO_OneTrack_to_blue
+        - TO_OneTrack_to_yellow
+        - ntrak_red_through
+        - left_Red_interface
+      
+      eastbound:  # left to right (from Kennedy side)
+        - left_Red_interface
+        - ntrak_red_through
+        - TO_OneTrack_to_yellow
+        - TO_OneTrack_to_blue
+        - red_to_ladder
+        - TO_Red_ladder
+        - onetrack_through
+        - right_Red_interface
+        
+    yellow_through:
+      westbound:
+        - TO_OneTrack_to_yellow # starts at the turnout
+        - ntrak_yellow_through
+        - right_Yellow_interface
+
+      eastbound:
+        - right_Yellow_interface
+        - ntrak_yellow_through
+        - TO_OneTrack_to_yellow # ends at the turnout
+        
+    blue_through:
+      westbound:
+        - TO_OneTrack_to_blue
+        - ntrak_blue_through
+        - right_Blue_interface
+        
+      eastbound:
+        - right_Blue_interface
+        - ntrak_blue_through
+        - TO_OneTrack_to_blue
