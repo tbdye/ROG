@@ -1,16 +1,16 @@
 # Phase 2: PRD Development - Progress Tracker
 
-**Status:** Not Started
-**Started:** TBD
+**Status:** In Progress - Question 1 Complete
+**Started:** December 7, 2025
 **Phase Goal:** Create comprehensive Product Requirements Document answering the 26 critical questions identified during Phase 1
 
 ---
 
 ## Progress Summary
 
-**Overall Completion:** 5/26 questions addressed
+**Overall Completion:** 6/26 questions addressed
 
-- **Critical (Must Address in PRD):** 0/5 complete
+- **Critical (Must Address in PRD):** 1/5 complete
 - **Important (Affects Design):** 0/5 complete
 - **Refinement (Can Defer to Detailed Design):** 0/11 complete
 - **Platform and Deployment Context:** 5/5 complete [x]
@@ -22,18 +22,32 @@
 ### CRITICAL (Must Address in PRD)
 
 #### 1. Layout Topology Representation
-**Status:** [ ] Not Started
-**Session:** TBD
+**Status:** [x] Complete
+**Session:** 2025-12-20
 **PRD Section:** TBD
 
-**Questions to Answer:**
-- What specific data describes a module? (dimensions, track endpoints, switch positions, facing/trailing orientation?)
-- How are connections between modules represented?
-- For FREE-MO vs NTRAK, what interface data differs?
-- Do curves matter operationally or just physically?
-- How is "this industry is on the West Branch" captured in the data model?
+**Questions Answered:**
+- ✓ What specific data describes a module? (track interfaces, turnouts, segments, industries, sequencing)
+- ✓ How are connections between modules represented? (layout-level connection model)
+- ✓ For FREE-MO vs NTRAK, what interface data differs? (arbitrary line names, connects_through flag)
+- ✓ Do curves matter operationally or just physically? (Physical only - not modeled)
+- ✓ How is "this industry is on the West Branch" captured? (Derived from topology, not tagged)
 
-**Notes:** This is foundational for geographic routing
+**Deliverables:**
+- Comprehensive data model validated on real module examples
+- Module definition structure (interfaces, turnouts, segments, industries, sequencing)
+- Layout connection model
+- Reference specification document created
+
+**Key Decisions:**
+- Turnouts: hand, facing_direction, facing/diverging/trailing points
+- Sequencing includes track_segments for cost-based routing
+- Track inherently bidirectional; diverging routes are directional
+- Capacity measured in car count (not physical length)
+- Runarounds detectable as parallel tracks converging at both ends
+- Visual editor essential (hand-editing YAML impractical)
+
+**Notes:** This is foundational for geographic routing (Q3)
 
 ---
 
@@ -52,8 +66,8 @@
 ---
 
 #### 3. Geographic Routing Algorithm (THE CORE PROBLEM)
-**Status:** [ ] Not Started
-**Session:** TBD
+**Status:** [ ] Not Started - NEXT PRIORITY
+**Session:** TBD (next session)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -62,6 +76,16 @@
 - What defines a "branch"? Explicit in data model or inferred from topology?
 - How does system know which industries are "logically grouped"?
 - Should routing prefer fewer trains with longer routes, or more trains with focused routes?
+
+**Prerequisites Met:**
+- [x] Layout topology representation complete (Q1)
+- Topology model provides foundation for routing algorithm
+
+**Known Challenges:**
+- Grain Elevator routing requires 2 reversals through Chare Bros twice
+- Must handle directional constraints (some routes one-way only)
+- Operational cost vs distance optimization
+- Branch detection from topology graph
 
 **Notes:** This is THE problem ROG must solve - previous implementation failed here
 
@@ -211,7 +235,7 @@
 
 #### 13. Train Assignment and Handoff
 **Status:** [x] Partially Answered
-**Session:** 2024-12-07 (Phase 1)
+**Session:** 2025-12-07 (Phase 1)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -341,7 +365,7 @@
 
 #### 22. Technical Platform
 **Status:** [x] Complete
-**Session:** 2024-12-07 (Phase 2)
+**Session:** 2025-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -365,7 +389,7 @@
 
 #### 23. Integration and Compatibility
 **Status:** [x] Complete
-**Session:** 2024-12-07 (Phase 2)
+**Session:** 2025-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -388,7 +412,7 @@
 
 #### 24. Project Scope and Audience
 **Status:** [x] Complete
-**Session:** 2024-12-07 (Phase 2)
+**Session:** 2025-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -409,7 +433,7 @@
 
 #### 25. Physical Artifacts and Backup
 **Status:** [x] Complete
-**Session:** 2024-12-07 (Phase 2)
+**Session:** 2025-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -430,7 +454,7 @@
 
 #### 26. User Authentication and Authority
 **Status:** [x] Complete
-**Session:** 2024-12-07 (Phase 2)
+**Session:** 2025-12-07 (Phase 2)
 **PRD Section:** TBD
 
 **Questions to Answer:**
@@ -462,7 +486,7 @@
 
 _Track which sessions worked on which questions_
 
-### Session: 2024-12-07 - Platform Architecture
+### Session: 2025-12-07 - Platform Architecture
 **Questions Addressed:**
 - Q22: Technical Platform ([x] Complete)
 - Q23: Integration and Compatibility ([x] Complete)
@@ -484,6 +508,29 @@ _Track which sessions worked on which questions_
 
 ---
 
+### Session: 2025-12-20 - Layout Topology Representation
+**Questions Addressed:**
+- Q1: Layout Topology Representation ([x] Complete)
+
+**Decisions Made:**
+- Comprehensive module data model: interfaces, turnouts, segments, industries, sequencing
+- Layout connection model for module-to-module connections
+- Turnouts: hand, facing_direction, facing/diverging/trailing points
+- Sequencing includes track_segments for cost-based routing
+- Capacity in car count (not physical length)
+- Visual editor essential (hand-editing YAML impractical)
+- Runarounds detectable from parallel tracks converging at both ends
+
+**Module Examples Validated:**
+- Al - Chesterfield (complex multi-track with industry sidings)
+- Scott - Kennedy (crossover demonstrating directional transitions)
+- Pure Oil (3-track ladder forming multi-module runaround)
+
+**Next Steps:**
+- Q3: Geographic Routing Algorithm (using topology model as foundation)
+
+---
+
 ## PRD Document Status
 
 **Location:** TBD (likely `docs/ROG-PRD.md`)
@@ -491,33 +538,42 @@ _Track which sessions worked on which questions_
 **Last Updated:** N/A
 
 **Sections Completed:**
-- None yet
+- None yet (answers being captured in progress tracker)
 
 **Sections In Progress:**
-- None yet
+- Platform architecture (Q22-26 complete, needs synthesis)
+- Layout topology (Q1 complete, needs formal write-up)
 
 **Sections Pending:**
-- All sections
+- All other sections
 
 ---
 
 ## Notes and Insights
 
 ### Critical Path
-1. Start with Questions 3 (Geographic Routing) and 1 (Layout Topology) - these are interconnected and foundational
-2. Then address Question 2 (Car State Lifecycle) - needed for operational mechanics
-3. Platform questions (22-26) should be addressed early to constrain design space
-4. Refinement questions (11-21) can be addressed as details emerge
+1. ~~Platform questions (22-26)~~ COMPLETE ✓
+2. ~~Layout Topology (Q1)~~ COMPLETE ✓
+3. **Geographic Routing (Q3)** - NEXT PRIORITY
+4. Car State Lifecycle (Q2) - needed after routing
+5. Time modeling (Q4) - affects session progression
+6. Then address Important/Refinement questions
 
 ### Dependencies Identified
-- Geographic routing requires layout topology representation
+- Geographic routing REQUIRES layout topology representation ✓
 - Car state lifecycle affects session state tracking
 - Role workflows depend on understanding core operations first
+- Branch detection algorithm depends on topology graph (Q1 → Q3)
 
 ### Open Questions for User
 _Questions that arise during PRD development that need user input_
 
-- None yet
+**From 2025-12-20 session:**
+- "A few details we should discuss more later" - what were these specifically?
+- Session Master UX: What did Visio workflow look like?
+- Three-way turnouts: How to model?
+- Wye turnouts: Complex geometry handling?
+- Multi-level layouts: How to represent staging above/below?
 
 ---
 
@@ -525,10 +581,20 @@ _Questions that arise during PRD development that need user input_
 
 Phase 2 is complete when:
 - [ ] All CRITICAL questions (1-5) have been answered in PRD
+  - [x] Q1: Layout Topology Representation
+  - [ ] Q2: Car State Lifecycle
+  - [ ] Q3: Geographic Routing Algorithm
+  - [ ] Q4: Time Modeling
+  - [ ] Q5: Staging Mechanics
 - [ ] All IMPORTANT questions (6-10) have been answered or explicitly deferred with rationale
-- [ ] All PLATFORM questions (22-26) have been answered
+- [x] All PLATFORM questions (22-26) have been answered
 - [ ] REFINEMENT questions (11-21) have been triaged (answer now vs defer to detailed design)
 - [ ] PRD document is comprehensive enough for Phase 3 (Implementation Planning)
 - [ ] User confirms PRD captures the vision for ROG
 
 **Target:** Not rushing - quality over speed. Multiple sessions expected.
+
+**Progress:** 6/26 questions answered (23% complete)
+- 1/5 Critical questions complete
+- 5/5 Platform questions complete
+- Ready to tackle Q3 (Geographic Routing) next session
