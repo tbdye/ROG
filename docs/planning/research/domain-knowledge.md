@@ -1,6 +1,6 @@
 # Domain Knowledge for Model Railroad Operations Gaming Systems
 
-**Generated:** December 7, 2024  
+**Generated:** December 7, 2025  
 **Purpose:** Phase 1 Ideation - Comprehensive domain research to understand railroad operations, model layouts, and existing systems before defining ROG requirements.
 
 ---

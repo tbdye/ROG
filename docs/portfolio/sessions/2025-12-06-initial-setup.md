@@ -1,7 +1,7 @@
-# Session Summary - December 6, 2024
+# Session Summary - December 6, 2025
 
-**Phase:** Phase 0 - Planning Setup  
-**Status:** ✅ COMPLETE  
+**Phase:** Phase 0 - Planning Setup
+**Status:** ✅ COMPLETE
 **Next Phase:** Phase 1 - Ideation
 
 ---
@@ -11,7 +11,7 @@
 ### Documents Created
 1. **ROG-PROJECT-GUIDELINES.md** - Comprehensive project framework
 2. **ROG-DECISION-LOG.md** - Collaboration narrative tracker
-3. **Session-2024-12-06-summary.md** - This summary
+3. **Session-2025-12-06-summary.md** - This summary
 
 ### Key Decisions Made
 
@@ -173,7 +173,7 @@ This section captures conversation excerpts and interaction patterns suitable fo
 1. ✅ Download these three files using blue links in conversation:
    - ROG-PROJECT-GUIDELINES.md
    - ROG-DECISION-LOG.md
-   - Session-2024-12-06-summary.md
+   - Session-2025-12-06-summary.md
 
 2. ✅ Save to local `Railroad Operations Game/` folder
 
