@@ -663,7 +663,7 @@ Module:
 
 ## Version History
 
-**v1.0 (2024-12-20):**
+**v1.0 (2025-12-20):**
 - Initial specification
 - Validated on Kennedy, Pure Oil, Chesterfield modules
 - Includes module and layout models
@@ -675,6 +675,6 @@ Module:
 ## References
 
 - **Phase 2 PRD Progress:** `phase2-prd-progress.md`
-- **Session Summary:** `2024-12-20-topology-representation.md`
+- **Session Summary:** `2025-12-20-topology-representation.md`
 - **Module Examples:** Kennedy (crossover), Pure Oil (ladder), Chare Bros (simple through)
 - **Layout Example:** UNW 2020 Layout (Kennedy ↔ Pure Oil ↔ Chare Bros)

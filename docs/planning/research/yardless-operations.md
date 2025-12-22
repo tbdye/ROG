@@ -1,6 +1,6 @@
 # Yard-less Operations: How Real Railroads Inform Better Model Sessions
 
-**Generated:** December 7, 2024  
+**Generated:** December 7, 2025  
 **Purpose:** Phase 1 Ideation - Deep dive into short line railroad operations and how they translate to model railroad layouts without classification yards.
 
 ---

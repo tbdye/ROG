@@ -90,12 +90,41 @@ WIP
 
 ## Pull Request Standards
 
-### Before Creating a PR
+### Before Creating a PR - STOP AND THINK
 
-1. **Ensure all work is committed** on your topic branch
-2. **Update documentation** - All relevant docs must be updated before the PR
-3. **Test your changes** (once implementation begins)
-4. **Push your branch** to the remote repository
+**This checklist MUST be completed before creating any PR. Skipping steps risks losing context.**
+
+#### Working Memory Check
+- [ ] All work written to disk (nothing conversation-only)
+- [ ] All decisions documented in PRD sections
+- [ ] All rationale captured in decision logs (docs/PRD/decisions/)
+- [ ] Portfolio content preserved (if meaningful interactions occurred)
+
+#### File Updates
+- [ ] `docs/planning/current-work.md` updated with session state
+- [ ] Relevant PRD sections updated with decisions
+- [ ] `docs/PRD/decisions/` updated with rationale (categorized)
+- [ ] `docs/PRD/open-questions.md` status updated if questions answered
+- [ ] `docs/planning/phase2-progress.md` updated if questions completed
+- [ ] All documentation cross-references updated if file structure changed
+
+#### Portfolio Preservation
+- [ ] Checked if meaningful collaboration occurred (see CLAUDE.md criteria)
+- [ ] Added to `collaboration-patterns.md` if new pattern observed
+- [ ] Added to `presentation-artifacts.md` if portfolio-worthy moment
+- [ ] Session summary created in `docs/portfolio/sessions/YYYY-MM-DD-descriptor.md`
+
+#### Verification
+- [ ] Run `git status` - all changes visible
+- [ ] Review `git diff` - changes match intentions
+- [ ] No "TODO" or "FIXME" comments left unresolved
+- [ ] All work is committed on your topic branch
+- [ ] Test your changes (once implementation begins)
+- [ ] Push your branch to the remote repository
+
+**Why this matters:** PR captures snapshot at commit time. Anything in conversation-only is permanently lost.
+
+**See also:** CLAUDE.md for complete PR Pre-Flight Checklist and session management protocols.
 
 ### Creating a Pull Request
 

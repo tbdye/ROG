@@ -242,7 +242,7 @@ Next: design the routing algorithm that uses it.
 ## Files Changed in This Session
 
 **Created:**
-- 2024-12-20-topology-representation.md (this file)
+- 2025-12-20-topology-representation.md (this file)
 - topology-data-model-specification.md (reference doc)
 
 **Updated:**

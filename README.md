@@ -1,19 +1,24 @@
 # Railroad Operations Game (ROG)
 
-A persistent backend application with web-based configuration interface for managing railroad operations.
+A geographic-aware railroad operations management system with PWA interface and cloud backend.
 
 ## Project Status
 
-**Current Phase:** Phase 2 - PRD Development (Active)
+**Current Phase:** Phase 2 - PRD Development (6/26 questions answered)
 
-This project is in PRD development phase. Platform architecture decisions complete (PWA, cloud backend, offline-tolerant). Next: Geographic routing algorithm design.
+**Progress:**
+- [x] Q1: Layout Topology Representation - Complete
+- [x] Q22-26: Platform Architecture - Complete
+- **Next:** Q3 - Geographic Routing Algorithm
 
 ## Project Overview
 
-ROG (Railroad Operations Game) serves a dual purpose:
+ROG serves a dual purpose:
 
-1. **Primary Goal:** Build a functional railroad operations management application
-2. **Secondary Goal:** Document AI-assisted development workflow for portfolio/content creation
+1. **Primary Goal:** Build a functional railroad operations management application that solves the geographic routing problem
+2. **Secondary Goal:** Document AI-assisted development workflow for portfolio piece ("The ROG Sessions")
+
+**These projects are independent** - portfolio content not needed to understand ROG.
 
 The project follows a structured 6-phase development approach, from ideation through implementation to portfolio content synthesis.
 
@@ -21,75 +26,222 @@ The project follows a structured 6-phase development approach, from ideation thr
 
 ```
 ROG/
-├── CLAUDE.md                        # Guidance for Claude Code
+├── CLAUDE.md                        # Claude Code guidance
 ├── CONTRIBUTING.md                  # Git workflow and PR standards
 ├── README.md                        # This file
+├── ROG-PROJECT-GUIDELINES.md        # Project framework (lightweight)
 │
 └── docs/
-    ├── ROG-PROJECT-GUIDELINES.md    # Project framework and workflow
-    ├── phase2-prd-progress.md       # Phase 2 progress tracker
-    ├── portfolio/                   # Portfolio synthesis materials
-    │   ├── decision-log.md          # Collaboration narrative
-    │   └── artifacts/               # Research reports and planning materials
-    └── sessions/                    # Session summaries
-        └── YYYY-MM-DD-descriptor.md # Individual session notes
+    ├── PRD/                         # ★ SOURCE OF TRUTH FOR ROG
+    │   ├── README.md                # PRD index
+    │   ├── overview.md              # Problem statement, vision, scope
+    │   ├── platform.md              # Platform architecture (Q22-26)
+    │   ├── data-models.md           # Data models (Q1, Q6, Q7)
+    │   ├── routing-algorithm.md     # Geographic routing (Q3)
+    │   ├── user-workflows.md        # Role workflows (Q10)
+    │   ├── car-lifecycle.md         # Car states (Q2)
+    │   ├── open-questions.md        # All 26 questions, status
+    │   └── decisions-log.md         # Technical rationale
+    │
+    ├── planning/                    # ROG PLANNING MATERIALS
+    │   ├── current-work.md          # ★ SESSION BOOTSTRAP
+    │   ├── phase2-progress.md       # Question tracking
+    │   ├── research/                # Domain knowledge
+    │   │   ├── domain-knowledge.md
+    │   │   └── yardless-operations.md
+    │   └── specifications/          # Detailed specs
+    │       └── topology-data-model.md
+    │
+    └── portfolio/                   # "The ROG Sessions" Portfolio
+        ├── README.md                # Portfolio project overview
+        ├── collaboration-patterns.md # Synthesized patterns
+        ├── presentation-artifacts.md # Curated quotes
+        └── sessions/                # Process narratives
+            ├── 2024-12-06-initial-setup.md
+            ├── 2024-12-07-phase1-domain-research.md
+            ├── 2024-12-07-platform-architecture.md
+            └── 2025-12-20-topology-representation.md
 ```
 
 ## Getting Started
 
-This project is currently in Phase 2 (PRD Development). Platform architecture has been established (PWA, cloud backend, offline-tolerant). Technical stack selection and implementation details will be defined during Phase 3 (Implementation Planning).
+### For Contributors
 
-For contributors and AI assistants:
-- Read `CONTRIBUTING.md` for git workflow and standards
-- Read `CLAUDE.md` for Claude Code operational guidance
-- Read `docs/ROG-PROJECT-GUIDELINES.md` for complete project context
+1. Read `CONTRIBUTING.md` for git workflow and PR standards
+2. Read `CLAUDE.md` for Claude Code operational guidance
+3. Read `docs/PRD/README.md` for requirements index
+4. Check `docs/planning/current-work.md` for current session focus
 
-## Working with Claude
+### For Understanding ROG
 
-This repository includes special commands and protocols for effective AI-assisted development:
+**Start with:**
+- `docs/PRD/README.md` - Requirements index
+- `docs/PRD/overview.md` - Problem statement and vision
 
-### Special Queries
+**For specific topics:**
+- Platform decisions: `docs/PRD/platform.md`
+- Data models: `docs/PRD/data-models.md`
+- All questions: `docs/PRD/open-questions.md`
+- Current work: `docs/planning/current-work.md`
 
-**"What files need syncing?"** - When working across Claude.ai and Claude Code CLI, use this query to get a layered response of which files need to be synced to maintain full context:
-- **CORE**: Always-loaded files (CLAUDE.md, CONTRIBUTING.md, ROG-PROJECT-GUIDELINES.md, decision-log.md)
-- **PHASE-SPECIFIC**: Current phase trackers and recent session summaries
-- **REFERENCE**: Optional large files to load on-demand
+### For Portfolio Context
 
-See `CLAUDE.md` for full details on the layered context strategy.
+**"The ROG Sessions"** portfolio content lives in `docs/portfolio/`
 
-### Pre-Commit Review Protocol
+- Process documentation (how we collaborated)
+- Never needed to understand ROG planning
+- Separate project, duplicative content
 
-Before committing new documents, **ALWAYS** verify:
-- File naming follows established conventions (see CLAUDE.md documentation structure)
-- New directories are documented in README and CLAUDE.md
-- Session summaries use `YYYY-MM-DD-descriptor.md` format
-- Content completeness for current phase
+## Session Management
 
-**Standard query:** "Look through uncommitted changes and verify naming conventions match our documented standards."
+### Starting a Session
+
+**Recommended phrasing:**
+- **"Start ROG session"** or **"Resume ROG work"**
+
+**What happens:**
+1. Claude loads `docs/planning/current-work.md` (session bootstrap)
+2. Claude tells you what Tier 1 + Tier 2 files are loaded
+3. You can request additional files if needed
+
+**Example:**
+```
+You: "Start ROG session"
+
+Claude loads:
+- Tier 1 (CORE): CLAUDE.md, PRD/README.md, PRD/overview.md
+- Tier 2 (ACTIVE): PRD/data-models.md, planning/phase2-progress.md
+
+Ready to work on Q3 - Geographic Routing Algorithm
+```
+
+### Preparing for Next Session
+
+**Get homework questions:**
+- **"What should I prepare for the next session?"**
+- **"What questions do you have about [Question/Topic]?"**
+
+**What happens:**
+Claude identifies:
+- Open questions needing your input
+- Background information to gather
+- Decisions to think about
+- Context to prepare
+
+**Example:**
+```
+You: "What should I prepare for Question 3?"
+
+Claude responds with:
+- Branch detection algorithm questions
+- Complex routing scenarios to consider
+- Examples to bring (Grain Elevator case)
+- Definitions to clarify
+```
+
+**Benefit:** Come back with answers ready, accelerate collaboration.
+
+### Ending a Session (Two Scenarios)
+
+#### Scenario 1: Checkpoint (Pause and Resume Later)
+
+**Use when:** Need to clear context window but will continue work later
+
+**Recommended phrasing:**
+- **"Checkpoint session"** or **"Pause and save state"**
+
+**What happens:**
+1. Update `docs/planning/current-work.md`:
+   - What we just completed
+   - What we're working on now
+   - What's next when we resume
+   - Any blockers
+2. Save any in-progress decisions to PRD sections
+3. Update `planning/phase2-progress.md` if questions answered
+4. **All changes written to disk** (verify before ending)
+5. Session can resume anytime with fresh context
+
+**Critical:** All work must be in files before ending. Conversation-only content is lost.
+
+#### Scenario 2: Complete (Finalize and Create PR)
+
+**Use when:** Completed a task/question, ready to merge to main
+
+**Recommended phrasing:**
+- **"Complete session and prepare for PR"** or **"Wrap up for merge"**
+
+**What happens:**
+1. All checkpoint steps (above)
+2. Update relevant PRD sections with final decisions
+3. Add decision rationale to `docs/PRD/decisions/` (categorized)
+4. Update `docs/PRD/open-questions.md` status
+5. Optionally create session summary in `docs/portfolio/sessions/`
+6. **Verify all files saved**
+7. Create branch (if not exists)
+8. Create PR for review
+9. **After PR merge, no additional work** - session fully finalized
+
+**Critical:** PR captures snapshot at commit time. Anything not in files is lost.
+
+### Context Loading
+
+This repository uses a **three-tier context loading strategy** optimized for LLM context windows.
+
+**Query:** **"What context do I need?"** or **"What should I load for current work?"**
+
+Response based on `docs/planning/current-work.md`:
+- **Tier 1 (CORE):** Essential files, always load
+- **Tier 2 (ACTIVE):** Current work context
+- **Tier 3 (REFERENCE):** On-demand reference
+
+See `CLAUDE.md` for complete details.
 
 ## Development Phases
 
-1. **Phase 1: Ideation** [x] Complete - Requirements exploration and scope definition
-2. **Phase 2: PRD Development** (Current) - Product Requirements Document creation
-3. **Phase 3: Implementation Planning** - Tech stack, architecture, deployment strategy
-4. **Phase 4: Detailed Task Breakdown** - Task prioritization and dependencies
-5. **Phase 5: Implementation** - Active development
-6. **Phase 6: Portfolio Content Synthesis** - Create portfolio deliverable from collaboration narrative
+1. **Phase 1: Ideation** [x] Complete - Domain research, 26-question framework
+2. **Phase 2: PRD Development** (Current) - Answering questions, defining requirements
+3. **Phase 3: Implementation Planning** - Tech stack, architecture, deployment
+4. **Phase 4: Detailed Task Breakdown** - Task prioritization, dependencies
+5. **Phase 5: Implementation** - Active development (Claude Code CLI primary)
+6. **Phase 6: Portfolio Content Synthesis** - Blog post or video
+
+## Technology Stack
+
+**Status:** Platform architecture complete, implementation stack TBD in Phase 3
+
+**Platform decisions (Q22-26):**
+- Progressive Web App (PWA) with cloud backend
+- Offline-tolerant (30+ second connection drops)
+- Real-time multi-device collaboration
+- Car ownership model prevents conflicts
+- Session master role with admin authority
+
+See `docs/PRD/platform.md` for complete details.
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed information about:
-- Branch naming conventions
+- Branch naming conventions (`user/tbdye/<NameOfBranch>`)
 - Commit message standards
 - Pull request requirements
-- Git workflow
+- Git workflow (never commit directly to main)
 
 ## Documentation
 
-- **Project Framework:** `docs/ROG-PROJECT-GUIDELINES.md`
-- **Decision Log:** `docs/portfolio/decision-log.md`
-- **Session Summaries:** `docs/sessions/`
+**ROG Requirements:**
+- **PRD Index:** `docs/PRD/README.md`
+- **Overview:** `docs/PRD/overview.md`
+- **Open Questions:** `docs/PRD/open-questions.md`
+
+**Project Framework:**
+- **Guidelines:** `docs/ROG-PROJECT-GUIDELINES.md`
+- **Current Work:** `docs/planning/current-work.md`
+- **Progress:** `docs/planning/phase2-progress.md`
+
+**Portfolio:**
+- **Portfolio Overview:** `docs/portfolio/README.md`
+- **Collaboration Patterns:** `docs/portfolio/collaboration-patterns.md`
 
 ## License
 
-TBD
+TBD (decision deferred to Phase 3 - Implementation Planning)
