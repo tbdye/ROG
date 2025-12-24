@@ -1,8 +1,8 @@
 # ROG - Open Questions
 
-**Last Updated:** December 21, 2025
+**Last Updated:** December 24, 2025
 **Phase:** Phase 2 - PRD Development
-**Progress:** 6/26 questions answered (23%)
+**Progress:** 7/26 questions answered (27%)
 
 ---
 
@@ -18,11 +18,11 @@ This document tracks all 26 questions identified during Phase 1 assumption testi
 
 | Category | Complete | Total | % Complete |
 |----------|----------|-------|------------|
-| Critical (Must Address in PRD) | 1 | 5 | 20% |
+| Critical (Must Address in PRD) | 2 | 5 | 40% |
 | Important (Affects Design) | 0 | 5 | 0% |
 | Refinement (Can Defer) | 0 | 11 | 0% |
 | Platform and Deployment | 5 | 5 | 100% |
-| **TOTAL** | **6** | **26** | **23%** |
+| **TOTAL** | **7** | **26** | **27%** |
 
 ---
 
@@ -69,30 +69,36 @@ This document tracks all 26 questions identified during Phase 1 assumption testi
 
 ---
 
-### Q3: Geographic Routing Algorithm (THE CORE PROBLEM)
+### Q3: Geographic Routing Algorithm (THE CORE PROBLEM) ✓
 
-**Status:** Not Started - **NEXT PRIORITY**
-**Will be documented in:** [routing-algorithm.md](routing-algorithm.md)
+**Status:** Complete (2025-12-24)
+**Documented in:** [routing-algorithm.md](routing-algorithm.md)
 
-**Questions:**
-- What's the actual algorithm for geographic routing?
-- How does "build a train for the West Branch" work?
-- What defines a "branch"? Explicit in data model or inferred from topology?
-- How does system know which industries are "logically grouped"?
-- Should routing prefer fewer trains with longer routes, or more trains with focused routes?
+**Questions Answered:**
+- ✓ What's the actual algorithm for geographic routing? → Modified Dijkstra with operational costs
+- ✓ How does "build a train for the West Branch" work? → Operator-scoped routing by branch assignment
+- ✓ What defines a "branch"? → Hybrid auto-detect (endpoint-to-endpoint) + session master review
+- ✓ How does system know which industries are "logically grouped"? → Branch detection from topology graph
+- ✓ Routing preference? → Dynamic based on operator count (fewer operators = longer trains, more operators = focused trains)
 
-**Prerequisites:**
-- ✓ Layout topology representation (Q1) complete
-- Topology model provides foundation for routing algorithm
+**Key Deliverables:**
+- Branch detection algorithm (subdivisions → branches → exchange points)
+- Cost-based pathfinding (Dijkstra with operational costs)
+- Operator-scoped routing (branch assignment drives scope)
+- Foreign car handling (route to exchange points)
+- Short-line pattern support (self-contained branch operations)
+- Two train-building workflows (session master onboards + operator builds own)
+- 4-cycle car assignment (full cycle with recalculation)
 
-**Known challenges:**
-- Grain Elevator routing requires 2 reversals through Chare Bros twice
-- Must handle directional constraints (some routes one-way only)
-- Operational cost vs distance optimization
-- Branch detection from topology graph
+**Key Decisions:**
+- Branch detection: Hybrid auto-detect + session master review
+- Exchange points: Non-industry sidings accessible by multiple branches
+- Operator scope: Branch assignment defines routing scope
+- Short-line support: O'Brien ↔ Grain Elevator cycles without yard visits
+- See [decisions/algorithms.md](decisions/algorithms.md) for complete rationale
 
 **Critical context:**
-Previous implementation failed here. This is THE problem ROG exists to solve.
+This is THE problem ROG exists to solve. Geographic routing enables "build a train for the West Branch" with intelligent car assignments.
 
 ---
 
@@ -452,17 +458,18 @@ Previous implementation failed here. This is THE problem ROG exists to solve.
 
 ## Next Actions
 
-**Immediate priority:** Q3 - Geographic Routing Algorithm
+**Immediate priority:** Q2 - Car State Lifecycle
 
-**Why Q3 next:**
-- Prerequisites complete (topology model exists)
-- Core differentiating feature of ROG
-- Previous implementation failed here
-- Foundational for other decisions (car routing, train building, etc.)
+**Why Q2 next:**
+- Routing algorithm (Q3) needs car states for assignment logic
+- Enables state tracking (Q12)
+- Foundational for workflows (Q10)
+- Relatively straightforward after Q3 complexity
 
-**After Q3:**
-- Q2 (Car lifecycle) - enables state tracking
-- Q4 (Time modeling) - affects session progression
+**After Q2:**
+- Q4 (Time modeling) - affects session progression and loading/unloading
+- Q6 (Car identity) - commodity matching details
+- Q7 (Industry definitions) - commodity and spot capacity
 - Q10 (Workflows) - role-specific UX
 
 ---

@@ -43,6 +43,24 @@ This file captures **presentation-ready material** - specific quotes, moments, a
 
 ---
 
+## Breakthrough Moments
+
+### Discovering the Architectural Pattern (Q3 Geographic Routing)
+
+**Context:** Working through operator assignment and car routing scope
+
+**Human's insight:**
+> "I think this discovers a key attribute to the gameplay: The session master assigns operators to branches and ROG controls delivery assignments based on that."
+
+**Why this matters:** Single insight solved three problems at once:
+1. Operator scope (clear geographic boundaries)
+2. Short-line patterns (O'Brien ↔ Grain Elevator self-contained)
+3. Foreign car handling (route to exchange points)
+
+**Collaboration dynamic:** User's operational expertise revealed architectural pattern that AI couldn't derive from theory alone. Concrete thinking ("how would I assign trains?") led to elegant abstraction.
+
+---
+
 ## Systematic Decision-Making
 
 ### Platform Architecture Through Thinking Aloud

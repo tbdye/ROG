@@ -147,6 +147,18 @@ Generated 26 categories of uncertainties, validating foundation while revealing 
 - Start with concrete examples, not abstract theory
 - Each example reveals new complexity
 - Corrections lead to general principles
+
+**Example:** Q3 Geographic Routing - UNW 2020 layout examples revealed branch hierarchy, exchange points, and short-line patterns. Grain Elevator case demonstrated runaround/reversal complexity.
+
+---
+
+### Pattern: Automation with Agency (Hybrid Approach)
+- User prefers intelligent defaults + manual override
+- "Ideally computed and 'just works'...then session master tweaks"
+- Trust system intelligence but maintain control
+- Lowers barrier to entry while preserving flexibility
+
+**Example:** Branch detection - auto-detect subdivisions and branches from topology, present to session master for review/modification. Not fully automatic (no control) or fully manual (too tedious).
 - User validation (hand-editing) reveals UX requirements
 
 **Example:** Topology model validated through Kennedy (crossovers), Pure Oil (ladder), Chesterfield (complex multi-track).

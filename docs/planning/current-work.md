@@ -1,110 +1,92 @@
 # ROG - Current Work
 
-**Last Updated:** December 21, 2025
-**Session:** Documentation Reorganization + Protocol Updates (In Progress)
+**Last Updated:** December 24, 2025
+**Session:** Q3 Geographic Routing Algorithm - Complete
 
 ---
 
 ## What We're Currently Working On
 
-**Updating documentation with improved session protocols:**
+**Session complete - Q3 Geographic Routing Algorithm answered.**
 
-1. **Session start protocol enhanced:**
-   - Added summary statement (forcing function)
-   - Added directory scan (Tier 3 awareness)
-   - Added confirmation step for context loading
-
-2. **Session end protocol enhanced:**
-   - Added portfolio content preservation (CRITICAL)
-   - Added portfolio capture criteria
-   - Distinguished checkpoint vs complete scenarios
-
-3. **PR Pre-Flight Checklist added:**
-   - Stop and think before creating PR
-   - Verify all work in files
-   - Portfolio preservation check
-   - File updates checklist
-
-4. **Claude.ai references removed:**
-   - Removed cross-environment sync sections
-   - Updated encoding rationale
-   - Simplified to Code CLI only workflow
-
-5. **Date fixes:**
-   - Fixed 2025-12-20 topology session filename
-   - Fixed all session files from 2024 to 2025 (Sonnet 4.5 year assumption error)
+All work documented in:
+- PRD section: `docs/PRD/routing-algorithm.md`
+- Decision rationale: `docs/PRD/decisions/algorithms.md`
+- Progress tracking: `docs/planning/phase2-progress.md`
+- Open questions: `docs/PRD/open-questions.md`
 
 ---
 
-## What We Just Completed (Earlier This Session)
+## What We Just Completed (This Session)
 
-**Major reorganization of repository documentation structure:**
+**Answered Q3 - Geographic Routing Algorithm:**
 
-1. **Created PRD structure** (ROG source of truth)
-   - All requirements, decisions, models in `docs/PRD/`
-   - Categorized decision logs with index for easy searching
-   - Clear separation from portfolio content
+1. **Comprehensive routing algorithm design:**
+   - Branch detection algorithm (subdivisions → branches → exchange points)
+   - Cost-based pathfinding using Modified Dijkstra
+   - Operator-scoped routing model
+   - Exchange point detection and usage patterns
+   - Short-line pattern support
+   - Two train-building workflows
+   - 4-cycle car assignment logic
 
-2. **Separated portfolio content** ("The ROG Sessions")
-   - Portfolio completely independent in `docs/portfolio/`
-   - Never needed for ROG planning
-   - Collaboration patterns, presentation artifacts, session narratives
+2. **Key architectural insight discovered:**
+   - Branch assignment to operators drives routing scope
+   - Foreign cars route to exchange points when outside scope
+   - Enables short-line patterns (O'Brien ↔ Grain Elevator self-contained)
+   - Realistic multi-crew coordination
 
-3. **Restructured decision logs:**
-   - Categorized: platform, data-models, process
-   - Index with grep examples for quick search
-   - Removed old monolithic files
+3. **Validation examples:**
+   - UNW 2020 Black River → Palin Bridge (12-car train, capacity handling)
+   - Grain Elevator routing (2 reversals through Chare Bros)
+   - Short-line pattern (self-contained branch operations)
+
+4. **Documentation created:**
+   - `docs/PRD/routing-algorithm.md` (comprehensive algorithm specification)
+   - `docs/PRD/decisions/algorithms.md` (7 decisions with tags and rationale)
+   - Updated `docs/PRD/decisions-index.md` (added 15 new tags, algorithms category)
+   - Updated `docs/PRD/open-questions.md` (Q3 complete, progress 7/26 = 27%)
+   - Updated `docs/planning/phase2-progress.md` (Q3 session log, critical path)
+
+**This session solved THE problem ROG exists to solve:**
+Geographic routing enables "build a train for the West Branch" with intelligent car assignments. Previous implementation failed here. ROG solves it.
 
 ---
 
 ## Current Phase
 
 **Phase:** Phase 2 - PRD Development
-**Progress:** 6/26 questions answered (23%)
+**Progress:** 7/26 questions answered (27%)
 
 **Completed:**
 - [x] Q1: Layout Topology Representation
+- [x] Q3: Geographic Routing Algorithm
 - [x] Q22-26: Platform Architecture
 
-**Next Priority:** Q3 - Geographic Routing Algorithm
+**Next Priority:** Q2 - Car State Lifecycle
 
 ---
 
 ## What's Next
 
-**Immediate (this session):**
-- ✅ Checkpointed before auto-compact (94% context used, 6% remaining)
-- ✅ Session summary created (2025-12-21-documentation-reorganization.md)
-- ✅ Update CONTRIBUTING.md with PR Pre-Flight Checklist (WORKFLOW-CRITICAL)
-- ✅ Fixed all 2024-12-20 date references (corrected to 2025-12-20)
-- ✅ Enhanced Tier 3 scanning to be context-aware and intelligent
-- ✅ All workflow management changes saved
+**After this session:**
+- Create PR for Q3 work (pending user permission)
+- PR merge finalizes Q3 knowledge
 
-**Fresh context window (post auto-compact):**
-- ✅ Fixed 3 minor issues (PRD/README.md path, current-work.md status, .gitkeep files)
-- ✅ Enhanced CLAUDE.md Session Start with explicit 6-step checklist
-- ✅ Created comprehensive tag system (29 tags across 6 categories)
-- ✅ Tagged all 12 existing decisions with dates, status, and tags
-- ✅ Updated decisions-index.md with dates, status, and complete tag documentation
-- ✅ Added Decision Documentation Workflow section to CLAUDE.md (CORE WORKFLOW)
-- ✅ Added Questions/Assumptions sections to current-work.md template
-- ✅ Fixed ALL remaining 2024 date references (4 session files + 7 internal refs + 2 research files)
-- ✅ All enhancements complete and ready for PR
+**Next question to tackle:** Q2 - Car State Lifecycle
 
-**After Checkpoint:**
-- Continue refining protocols if needed
-- OR prepare for Q3 work
+**Why Q2 next:**
+- Routing algorithm (Q3) needs car states for assignment logic
+- Enables state tracking (Q12)
+- Foundational for workflows (Q10)
+- Relatively straightforward after Q3 complexity
 
-**After Review & Merge:**
-
-**Start Q3 - Geographic Routing Algorithm**
-
-**Context to load:**
+**Context to load for Q2:**
 - Tier 1 (CORE): CLAUDE.md, PRD/README.md, PRD/overview.md, this file
 - Tier 2 (ACTIVE):
-  - PRD/data-models.md + PRD/decisions/data-models.md (planning phase - load both)
-  - PRD/platform.md (offline sync constraints)
-  - planning/specifications/topology-data-model.md (detailed spec)
+  - PRD/routing-algorithm.md (needs car states: available, empty, staged, etc.)
+  - PRD/platform.md (car ownership model, admin authority)
+  - PRD/decisions/algorithms.md (car assignment logic context)
   - planning/phase2-progress.md (question tracking)
 
 ---
@@ -117,9 +99,9 @@
 
 ## Questions for User
 
-**Questions needing answers to proceed with current work:**
+**Questions needing answers to proceed with Q2:**
 
-(None currently - all questions for Q3 will be added when we start Q3 work)
+(None currently - Q2 question exploration will happen when we start Q2 work)
 
 **Purpose:** Capture blockers requiring user input so they can be answered between sessions.
 
@@ -129,7 +111,15 @@
 
 **Assumptions pending validation:**
 
-(None currently - will be added as we make assumptions during Q3 work)
+1. **Full 4-cycle car assignment** (from Q3):
+   - Assumption: Real railroad dispatchers know full car lifecycle
+   - Validation needed: Research actual dispatcher vs operator knowledge
+   - Impact: May affect whether to show full cycle to operators or just next move
+
+2. **Club-configurable cost weights** (from Q3):
+   - Assumption: Different clubs will have different operational preferences
+   - Validation needed: Test with real clubs to determine if defaults are sufficient
+   - Impact: May simplify to fixed costs if clubs don't need customization
 
 **Purpose:** Surface hidden dependencies and assumptions that may need user confirmation.
 
@@ -137,22 +127,25 @@
 
 ## Portfolio Note for This Session
 
-**Meaningful collaboration moments (earlier in session):**
-- User's paranoia about losing data ("you should be too") shaped portfolio preservation protocol
-- Enhanced context loading with directory scan (human would look in directory)
-- PR Pre-Flight Checklist creation (systematic check to prevent loss)
-- Portfolio capture criteria refinement
-
-**Meaningful collaboration moments (post auto-compact):**
-- User caught 2024 date references - attention to detail, thoroughness
-- User's directive on tag system: "If we're going to use tagging, let's go through EVERYTHING and first pass tag everything now"
-- Established pattern: Do comprehensive work now, not piecemeal later
-- Fresh perspective review identified 3 minor issues + led to comprehensive enhancements
+**Meaningful collaboration moments:**
+- User provided detailed Q3 answers in Question3.txt artifact
+- Operational expertise shaped algorithm design (cost model, branch detection, short-line patterns)
+- User's "key attribute" insight: Branch assignment to operators drives routing scope
+- Discovered architectural pattern: Operator-scoped routing enables short-lines + foreign car handling
+- User's clarification on train building workflows (two distinct scenarios)
+- Validation: Real layout examples (UNW 2020, Grain Elevator complexity)
 
 **Patterns observed:**
-- User systematically identified gaps in session management protocols
-- User values thoroughness over incrementalism ("Why not do both now?")
-- User catches details AI might miss (2024 dates in filenames)
+- User thinks in operational scenarios (how session master would assign trains)
+- Provides concrete examples that reveal abstract patterns
+- Technical depth in domain knowledge (runarounds, reversals, directional constraints)
+- Hybrid approach preference (auto-detect + manual review) - trusts system but wants control
+
+**Decision quality:**
+- All 7 algorithm decisions marked Final
+- Well-validated against real layout examples
+- Solves the core problem ROG exists to solve
+- Comprehensive coverage (branch detection, pathfinding, scoping, exchange points, short-lines)
 
 ---
 
@@ -164,10 +157,12 @@
 3. Claude provides summary and recommends Tier 2 files
 4. Confirm context loading
 
-**To prepare for next session:**
-- Ask: "What should I prepare for Question 3?"
-- Get specific questions about branch detection, routing scenarios, definitions needed
-- Come back with answers ready to accelerate collaboration
+**To prepare for Q2 (Car State Lifecycle):**
+- Think about car states: What states can a car be in?
+- State transitions: What triggers changes between states?
+- Who can change states: System automatic, session master, operators?
+- Time dependencies: Do states have time delays (loading/unloading)?
+- Reality-first implications: How does state reconciliation work?
 
 **Critical:**
 - All work must be in files before checkpointing/completing
