@@ -1,8 +1,8 @@
 # ROG Decision Index
 
-**Last Updated:** December 21, 2025
+**Last Updated:** December 24, 2025
 **Purpose:** Quick reference to find specific technical decisions without loading full decision logs
-**Total Decisions:** 12 (5 platform, 4 data-model, 3 process)
+**Total Decisions:** 19 (5 platform, 4 data-model, 3 process, 7 algorithms)
 
 ---
 
@@ -95,6 +95,39 @@ grep -n "#session-management" docs/PRD/decisions/process.md
 
 ---
 
+## Routing & Algorithm Decisions
+
+**File:** [decisions/algorithms.md](decisions/algorithms.md)
+
+- **Branch Detection: Hybrid Auto-Detect** [2025-12-24, Final] → Auto-detect subdivisions/branches, session master reviews
+  - Tags: `#routing #topology #branch-detection #usability #adoption #mvp-critical`
+
+- **Pathfinding: Modified Dijkstra** [2025-12-24, Final] → Dijkstra with operational cost weights and directional edges
+  - Tags: `#routing #pathfinding #cost-optimization #mvp-critical`
+
+- **Car Assignment: Full 4-Cycle** [2025-12-24, Final] → Assign full 4-cycle pattern, recalculate on state changes
+  - Tags: `#routing #car-lifecycle #4-cycle-waybill #session-management #mvp-critical`
+
+- **Operator-Scoped Routing** [2025-12-24, Final] → Branch assignment drives routing scope
+  - Tags: `#routing #operator-assignment #branch-assignment #scoping #mvp-critical`
+
+- **Exchange Points: Auto-Detect** [2025-12-24, Final] → Detect non-industry sidings accessible by multiple branches
+  - Tags: `#routing #exchange-points #operator-coordination #multi-crew #mvp-critical`
+
+- **Short-Line Pattern Support** [2025-12-24, Final] → Self-contained branch operations without yard visits
+  - Tags: `#routing #short-line #yardless-operations #operator-assignment #mvp-critical`
+
+- **Train Building: Two Workflows** [2025-12-24, Final] → Session master onboards + operator builds own
+  - Tags: `#routing #train-building #session-management #operator-workflow #mvp-critical`
+
+**Quick grep:**
+```bash
+grep -n "Branch Detection" docs/PRD/decisions/algorithms.md
+grep -n "#routing" docs/PRD/decisions/algorithms.md
+```
+
+---
+
 ## Tag System
 
 **ALL decisions must be tagged.** Tags enable multi-dimensional search across categories.
@@ -106,7 +139,11 @@ grep -n "#session-management" docs/PRD/decisions/process.md
 - `#real-time` - Real-time multi-device collaboration
 - `#topology` - Layout topology representation
 - `#routing` - Routing algorithms and pathfinding
+- `#pathfinding` - Pathfinding algorithms (Dijkstra, A*, etc.)
+- `#branch-detection` - Subdivision and branch detection
+- `#cost-optimization` - Cost-based optimization
 - `#car-identity` - Car identification and tracking
+- `#car-lifecycle` - Car state transitions and lifecycle management
 - `#conflict-resolution` - Handling data conflicts
 - `#deployment` - System deployment approach
 - `#platform` - Platform choice (web, native, desktop)
@@ -114,6 +151,17 @@ grep -n "#session-management" docs/PRD/decisions/process.md
 - `#editor` - Visual/graphical editing tools
 - `#capacity` - Capacity modeling
 - `#directionality` - Directional modeling (turnouts, tracks)
+- `#exchange-points` - Car exchange/transfer points
+- `#operator-assignment` - Assigning operators to branches/trains
+- `#branch-assignment` - Branch assignment patterns
+- `#scoping` - Routing scope management
+- `#train-building` - Train consist building workflows
+- `#operator-workflow` - Operator-specific workflows
+- `#operator-coordination` - Multi-operator coordination
+- `#multi-crew` - Multi-crew operations
+- `#short-line` - Short line railroad operations
+- `#yardless-operations` - Operations without classification yards
+- `#4-cycle-waybill` - 4-cycle car card/waybill system
 
 **Architectural:**
 - `#pwa` - Progressive Web App

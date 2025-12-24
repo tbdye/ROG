@@ -1,6 +1,6 @@
 # Phase 2: PRD Development - Progress Tracker
 
-**Status:** In Progress - Question 1 Complete
+**Status:** In Progress - Questions 1 and 3 Complete
 **Started:** December 7, 2025
 **Phase Goal:** Create comprehensive Product Requirements Document answering the 26 critical questions identified during Phase 1
 
@@ -8,12 +8,12 @@
 
 ## Progress Summary
 
-**Overall Completion:** 6/26 questions addressed
+**Overall Completion:** 7/26 questions addressed (27%)
 
-- **Critical (Must Address in PRD):** 1/5 complete
-- **Important (Affects Design):** 0/5 complete
-- **Refinement (Can Defer to Detailed Design):** 0/11 complete
-- **Platform and Deployment Context:** 5/5 complete [x]
+- **Critical (Must Address in PRD):** 2/5 complete (40%)
+- **Important (Affects Design):** 0/5 complete (0%)
+- **Refinement (Can Defer to Detailed Design):** 0/11 complete (0%)
+- **Platform and Deployment Context:** 5/5 complete (100%) [x]
 
 ---
 
@@ -66,28 +66,42 @@
 ---
 
 #### 3. Geographic Routing Algorithm (THE CORE PROBLEM)
-**Status:** [ ] Not Started - NEXT PRIORITY
-**Session:** TBD (next session)
-**PRD Section:** TBD
+**Status:** [x] Complete
+**Session:** 2025-12-24
+**PRD Section:** [routing-algorithm.md](../PRD/routing-algorithm.md)
 
-**Questions to Answer:**
-- What's the actual algorithm for geographic routing?
-- How does "build a train for the West Branch" work?
-- What defines a "branch"? Explicit in data model or inferred from topology?
-- How does system know which industries are "logically grouped"?
-- Should routing prefer fewer trains with longer routes, or more trains with focused routes?
+**Questions Answered:**
+- ✓ What's the actual algorithm for geographic routing? → Modified Dijkstra with operational cost weighting
+- ✓ How does "build a train for the West Branch" work? → Operator-scoped routing by branch assignment
+- ✓ What defines a "branch"? → Hybrid auto-detect (endpoint-to-endpoint longest paths) + session master review
+- ✓ How does system know which industries are "logically grouped"? → Branch detection from topology graph
+- ✓ Routing preference? → Dynamic based on operator count and branch assignment
 
-**Prerequisites Met:**
-- [x] Layout topology representation complete (Q1)
-- Topology model provides foundation for routing algorithm
+**Deliverables:**
+- Branch detection algorithm (subdivisions → branches → exchange points)
+- Cost-based pathfinding using Modified Dijkstra
+- Operator-scoped routing model
+- Exchange point detection and usage
+- Short-line pattern support (self-contained branch operations)
+- Two train-building workflows (session master onboards + operator builds own)
+- 4-cycle car assignment with recalculation on state changes
+- Switch list generation specification
 
-**Known Challenges:**
-- Grain Elevator routing requires 2 reversals through Chare Bros twice
-- Must handle directional constraints (some routes one-way only)
-- Operational cost vs distance optimization
-- Branch detection from topology graph
+**Key Decisions:**
+- Branch detection: Hybrid auto-detect + session master review
+- Pathfinding: Modified Dijkstra with operational costs (turnouts, reversals, mainline exposure)
+- Operator scoping: Branch assignment drives routing scope
+- Foreign cars: Route to exchange points when outside operator's scope
+- Short-line support: O'Brien ↔ Grain Elevator can cycle without yard visits
+- Car assignment: Full 4-cycle pattern with recalculation on state changes
+- See [decisions/algorithms.md](../PRD/decisions/algorithms.md) for complete rationale
 
-**Notes:** This is THE problem ROG must solve - previous implementation failed here
+**Validation:**
+- Example 1: UNW 2020 Black River → Palin Bridge (12-car train, capacity constraints handled)
+- Example 2: Grain Elevator routing (2 reversals through Chare Bros, algorithm handles complexity)
+- Example 3: Short-line pattern (O'Brien ↔ Grain Elevator self-contained operations)
+
+**Notes:** This is THE problem ROG exists to solve - geographic routing enables "build a train for the West Branch." Previous implementation failed here. ROG solves it.
 
 ---
 
@@ -531,6 +545,40 @@ _Track which sessions worked on which questions_
 
 ---
 
+### Session: 2025-12-24 - Geographic Routing Algorithm
+**Questions Addressed:**
+- Q3: Geographic Routing Algorithm ([x] Complete)
+
+**Decisions Made:**
+- Branch detection: Hybrid auto-detect (subdivisions → branches → exchange points) + session master review
+- Pathfinding: Modified Dijkstra with operational cost weights (turnouts +15, reversals +50, against-traffic 5.0×)
+- Operator-scoped routing: Branch assignment drives routing scope
+- Exchange points: Auto-detect non-industry sidings accessible by multiple branches
+- Short-line pattern support: Self-contained branch operations (O'Brien ↔ Grain Elevator)
+- Car assignment: Full 4-cycle pattern with recalculation on state changes
+- Train building: Two workflows (session master onboards + operator builds own)
+- Cost model: Club-configurable relative weights for operational costs
+
+**Algorithms Specified:**
+- Subdivision detection: Connected components + transition points
+- Branch detection: Endpoint-to-endpoint longest paths with hierarchical structure
+- Exchange point detection: Multi-branch accessibility analysis
+- Pathfinding: Dijkstra with directional edges and operational cost weighting
+- Runaround detection: Parallel tracks converging at both ends
+- Foreign car routing: Route to nearest exchange point when outside operator scope
+
+**Validation Examples:**
+- UNW 2020 Black River → Palin Bridge: 12-car train, capacity constraints handled
+- Grain Elevator routing: 2 reversals through Chare Bros, algorithm handles complexity
+- Short-line pattern: O'Brien ↔ Grain Elevator self-contained operations
+
+**Next Steps:**
+- Q2: Car State Lifecycle (enables routing assignment logic)
+- Q4: Time Modeling (affects loading/unloading time delays)
+- Q6/Q7: Car Identity and Industry Definitions (commodity matching details)
+
+---
+
 ## PRD Document Status
 
 **Location:** TBD (likely `docs/ROG-PRD.md`)
@@ -554,15 +602,18 @@ _Track which sessions worked on which questions_
 ### Critical Path
 1. ~~Platform questions (22-26)~~ COMPLETE ✓
 2. ~~Layout Topology (Q1)~~ COMPLETE ✓
-3. **Geographic Routing (Q3)** - NEXT PRIORITY
-4. Car State Lifecycle (Q2) - needed after routing
-5. Time modeling (Q4) - affects session progression
-6. Then address Important/Refinement questions
+3. ~~Geographic Routing (Q3)~~ COMPLETE ✓
+4. **Car State Lifecycle (Q2)** - NEXT PRIORITY
+5. Time modeling (Q4) - affects session progression and loading/unloading
+6. Car Identity (Q6) and Industry Definitions (Q7) - enable commodity matching
+7. Then address Important/Refinement questions
 
 ### Dependencies Identified
-- Geographic routing REQUIRES layout topology representation ✓
-- Car state lifecycle affects session state tracking
-- Role workflows depend on understanding core operations first
+- ✓ Geographic routing REQUIRES layout topology representation (Q1 → Q3)
+- ✓ Routing algorithm complete, needs car states for assignment logic (Q3 → Q2)
+- Car state lifecycle affects session state tracking (Q2 → Q12)
+- Role workflows depend on understanding core operations first (Q2, Q3 → Q10)
+- Commodity matching depends on car identity and industry models (Q2, Q3 → Q6, Q7)
 - Branch detection algorithm depends on topology graph (Q1 → Q3)
 
 ### Open Questions for User
